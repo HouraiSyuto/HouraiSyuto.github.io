@@ -1,25 +1,139 @@
-body {
-  background: radial-gradient(#a1f2c4, #6292ea);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  /* background-image: url("hayapi.jpg"); */
+:root {
+  --ink: #141a2b;
+  --ink-deep: #0d111d;
+  --broth: #e0a458;
+  --cream: #f3efe6;
+  --cream-dim: #a9a699;
+  --line: rgba(243, 239, 230, 0.12);
+  --display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --text: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
 }
 
-.title{
-  font-size: 100px;
-  font-family: "Hiragino Sans","Helvetica Black","Arial Black", "sans-serif";;
-  font-weight: 900;
-  color: midnightblue;
-}
-
-.content {
-  width: 200px;
-  padding: 10px;
+* {
   box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--ink);
+  background-image: radial-gradient(ellipse 90% 60% at 50% -10%, #25304a 0%, transparent 70%);
+  color: var(--cream);
+  font-family: var(--text);
+  font-weight: 400;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.profile {
+  max-width: 420px;
   margin: 0 auto;
+  padding: 72px 16px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  margin: 0 0 32px;
+  padding: 4px;
+  border-radius: 50%;
+  border: 1px solid var(--broth);
+}
+
+.avatar img {
+  display: block;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 56px;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  line-height: 1.1;
+  color: var(--cream);
+}
+
+.x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cream-dim);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.x-link:hover,
+.x-link:focus-visible {
+  color: var(--broth);
+  border-color: var(--broth);
+  outline: none;
+}
+
+.card {
+  width: 100%;
+  margin-top: 48px;
+  padding: 32px 28px;
+  text-align: left;
+  background: rgba(243, 239, 230, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--broth);
+}
+
+.card h2 + p {
+  margin-top: 0;
+}
+
+.card h2:not(:first-child) {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.card p {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .profile {
+    padding-top: 56px;
+  }
+  .name {
+    font-size: 44px;
+  }
+  .card {
+    padding: 28px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .x-link {
+    transition: none;
+  }
 }
